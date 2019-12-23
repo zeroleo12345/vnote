@@ -2768,7 +2768,7 @@ void VMainWindow::initTrayIcon()
 }
 
 bool VMainWindow::event(QEvent *event) {
-    qWarning() << "VMainWindow::event = " << event->type();
+//     qWarning() << "VMainWindow::event = " << event->type();
     return QMainWindow::event(event);
 }
 
