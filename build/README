@@ -1,7 +1,12 @@
+- 官方编译说明
+https://vnote.readthedocs.io/en/latest/user_docs/build.html
+
+
 - 下载源码
 ```
 git submodule update --init --recursive
 ```
+
 
 - 安装依赖
 ```
