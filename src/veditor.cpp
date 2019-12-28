@@ -1349,7 +1349,6 @@ bool VEditor::handleMouseReleaseEvent(QMouseEvent *p_event)
 
 bool VEditor::handleMouseMoveEvent(QMouseEvent *p_event)
 {
-    qWarning() << "222222222222222";
     const int threshold = 5;
 
     if (m_readyToScroll) {
@@ -1385,7 +1384,6 @@ bool VEditor::handleMouseMoveEvent(QMouseEvent *p_event)
 
 bool VEditor::handleWheelEvent(QWheelEvent *p_event)
 {
-    qWarning() << "111111111111111";
     Qt::KeyboardModifiers modifiers = p_event->modifiers();
     if (modifiers == Qt::ShiftModifier) {
         // Scroll horizontally.
