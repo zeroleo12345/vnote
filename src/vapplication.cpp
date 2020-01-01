@@ -3,6 +3,11 @@
 VApplication::VApplication(int &argc, char **argv)
     : QApplication(argc, argv)
 {
+}
+
+void VApplication::setWindow(VMainWindow * window)
+{
+    this->window = window;
     connect(this, &QApplication::applicationStateChanged, this, &VApplication::onApplicationStateChanged);
 }
 
@@ -16,3 +21,4 @@ void VApplication::onApplicationStateChanged(Qt::ApplicationState state)
     }
 #endif
 }
+
