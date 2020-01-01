@@ -266,7 +266,7 @@ int main(int argc, char *argv[])
     w.kickOffStartUpTimer(filePaths);
 
     app.setWindow(&w);
-//    qputenv("QTWEBENGINE_REMOTE_DEBUGGING", "9000");
+    qputenv("QTWEBENGINE_REMOTE_DEBUGGING", "9000");
     int ret = app.exec();
     if (ret == RESTART_EXIT_CODE) {
         // Ask to restart VNote.
