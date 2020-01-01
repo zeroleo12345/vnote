@@ -33,3 +33,13 @@ make -j2
 
 编译成功, 可执行文件位置:  build/src/VNote
 ```
+
+
+- 调试QWebEngine
+``` bash
+# main.cpp 中加入:
+qputenv("QTWEBENGINE_REMOTE_DEBUGGING", "9000");
+
+# 启动VNote后, crhome访问:
+http://127.0.0.1:9000/
+```
