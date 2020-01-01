@@ -282,7 +282,7 @@ window.onwheel = function(e) {
         var deltaY = 1.2 * e.deltaY;
         window.scrollBy(0, deltaY);
     }
-}
+};
 
 var skipScrollCheckRange = null;
 
