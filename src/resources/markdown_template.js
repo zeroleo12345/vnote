@@ -277,6 +277,10 @@ window.onwheel = function(e) {
     var ctrl = !!e.ctrlKey;
     if (ctrl) {
         e.preventDefault();
+    } else {
+        e.preventDefault();
+        var deltaY = 1.2 * e.deltaY;
+        window.scrollBy(0, deltaY);
     }
 }
 
