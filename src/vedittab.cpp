@@ -68,7 +68,6 @@ void VEditTab::handleFocusChanged(QWidget * /* p_old */, QWidget *p_now)
 
 void VEditTab::wheelEvent(QWheelEvent *p_event)
 {
-    qWarning() << "111111111111111";
     if (p_event->modifiers() & Qt::ControlModifier) {
         QPoint angle = p_event->angleDelta();
         if (!angle.isNull() && (angle.y() != 0)) {
