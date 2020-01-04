@@ -2737,9 +2737,9 @@ void VMainWindow::checkSharedMemory()
 void VMainWindow::initTrayIcon()
 {
     QMenu *menu = new QMenu(this);
-    QAction *showMainWindowAct = menu->addAction(tr("Show VNote"));
-    connect(showMainWindowAct, &QAction::triggered,
-            this, &VMainWindow::showMainWindow);
+//    QAction *showMainWindowAct = menu->addAction(tr("Show VNote"));
+//    connect(showMainWindowAct, &QAction::triggered,
+//            this, &VMainWindow::showMainWindow);
 
     QAction *exitAct = menu->addAction(tr("Quit"));
     connect(exitAct, &QAction::triggered,
