@@ -38,7 +38,7 @@ make -j2
 
 - windows编译
 ```
-QtCreator -> 菜单: 编译 -> 编译VNote
+QtCreator -> 菜单: 构建(B) -> 构建项目VNote
 ```
 
 
