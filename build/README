@@ -1,14 +1,15 @@
-- 官方编译说明
+### 官方编译说明
 https://vnote.readthedocs.io/en/latest/user_docs/build.html
 
 
-- 下载源码
+### 下载VNote源码
 ```
 git submodule update --init --recursive
 ```
 
 
-- 安装依赖
+### 安装依赖
+- macos依赖
 ```
 1. 安装 Xcode 10.1 (只因macOS 10.13.6限制)
 下载地址:  https://pan.macxin.com/Software/Xcode/
@@ -23,7 +24,8 @@ brew install qt@5.9.1  (不建议)
 ```
 
 
-- 编译
+### 编译
+- macos编译
 ```
 mkdir -p build
 cd build
@@ -34,8 +36,13 @@ make -j2
 编译成功, 可执行文件位置:  build/src/VNote
 ```
 
+- windows编译
+```
+QtCreator -> 菜单: 编译 -> 编译VNote
+```
 
-- 调试QWebEngine
+
+### 调试QWebEngine
 ``` bash
 # main.cpp 中加入:
 qputenv("QTWEBENGINE_REMOTE_DEBUGGING", "9000");
