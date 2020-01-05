@@ -2796,7 +2796,6 @@ void VMainWindow::showMainWindow()
             this->showNormal();
         }
     } else {
-//        qWarning() << "4444444444444";
 //#ifdef Q_OS_MAC
 //        ObjectiveC *obc = new ObjectiveC();
 //        obc->ShowWindow();
