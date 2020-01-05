@@ -39,6 +39,8 @@ make -j2
 - windows编译
 ```
 QtCreator -> 菜单: 构建(B) -> 构建项目VNote
+
+编译成功, 可执行文件位置: E:\cygwin64\home\zlx\github\build-VNote-Desktop_Qt_5_9_8_MSVC2015_32bit-Release\src\release
 ```
 
 
