@@ -193,7 +193,8 @@ void VMdEditor::saveFile()
         return;
     }
 
-    m_file->setContent(toPlainText());
+    QString text = toPlainText();
+    m_file->setContent(text);
     setModified(false);
 
     clearUnusedImages();
