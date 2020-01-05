@@ -23,7 +23,7 @@ var VPlantUMLDivClass = 'plantuml-diagram';
 var VMetaDataCodeClass = 'markdown-metadata';
 var VMarkRectDivClass = 'mark-rect';
 
-var hljsClass = 'hljs';
+var hljsClass = 'prettyprint';
 
 var VPreviewMode = false;
 
@@ -1295,6 +1295,8 @@ var addClassToCodeBlock = function() {
             }
         }
     }
+    // markdown-it.js before last render step
+    PR.prettyPrint();
 };
 
 var addCopyButtonToCodeBlock = function() {
