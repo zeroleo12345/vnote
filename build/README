@@ -29,6 +29,7 @@ brew install qt@5.9.1  (不建议)
 ```
 mkdir -p build
 cd build
+# 配置: .env 和 .envrc
 qmake -v
 qmake CONFIG-=debug CONFIG+=release ../VNote.pro
 make -j2
