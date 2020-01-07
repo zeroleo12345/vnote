@@ -11,7 +11,11 @@ class VApplication : public QApplication
 public:
     explicit VApplication(int &argc, char **argv);
 
-    void setWindow(VMainWindow * window);
+    void setWindow(VMainWindow * window)
+    {
+        this->window = window;
+    }
+
 
 public slots:
     void onApplicationStateChanged(Qt::ApplicationState state);
