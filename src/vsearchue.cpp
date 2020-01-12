@@ -128,6 +128,7 @@ void VSearchUE::init()
     m_treeWidget->setHeaderHidden(true);
     m_treeWidget->setExpandsOnDoubleClick(false);
     m_treeWidget->setFitContent(true);
+    m_treeWidget->setMinimumHeight(MINIMUM_HEIGHT);
     m_treeWidget->hide();
     connect(m_treeWidget, SIGNAL(itemActivated(QTreeWidgetItem *, int)),
             this, SLOT(activateItem(QTreeWidgetItem *, int)));

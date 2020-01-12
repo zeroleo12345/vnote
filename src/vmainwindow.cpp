@@ -3395,8 +3395,8 @@ void VMainWindow::initUniversalEntry()
 
     // Register entries.
     VSearchUE *searchUE = new VSearchUE(this);
-    m_ue->registerEntry('q', searchUE, VSearchUE::Name_FolderNote_AllNotebook);
     m_ue->registerEntry('a', searchUE, VSearchUE::Content_Note_AllNotebook);
+    m_ue->registerEntry('q', searchUE, VSearchUE::Name_FolderNote_AllNotebook);
     m_ue->registerEntry('z', searchUE, VSearchUE::Tag_Note_AllNotebook);
     m_ue->registerEntry('w', searchUE, VSearchUE::Name_Notebook_AllNotebook);
     m_ue->registerEntry('e', searchUE, VSearchUE::Name_FolderNote_CurrentNotebook);
@@ -3415,6 +3415,7 @@ void VMainWindow::initUniversalEntry()
     m_ue->registerEntry('m', new VListFolderUE(this), 0);
     m_ue->registerEntry('j', new VListUE(this), VListUE::History);
     m_ue->registerEntry('?', new VHelpUE(this), 0);
+    m_ue->setMinimumHeight(MINIMUM_HEIGHT);
 }
 
 void VMainWindow::checkNotebooks()

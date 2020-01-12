@@ -18,10 +18,10 @@
 #include "vpalette.h"
 #include "vlistfolderue.h"
 
-#define MINIMUM_WIDTH 200
+#define MINIMUM_WIDTH 1000
 
-#define CMD_EDIT_INTERVAL 500
-#define CMD_EDIT_IDLE_INTERVAL 100
+#define CMD_EDIT_INTERVAL 200
+#define CMD_EDIT_IDLE_INTERVAL 10
 
 extern VPalette *g_palette;
 
