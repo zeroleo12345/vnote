@@ -19,6 +19,7 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
 # find Qt5 installation
+set(Qt5_DIR "$ENV{QTDIR}/lib/cmake/Qt5")
 find_package(Qt5 REQUIRED COMPONENTS Core Gui Network PrintSupport WebChannel WebEngine
              WebEngineWidgets Positioning Svg Widgets LinguistTools
              HINTS

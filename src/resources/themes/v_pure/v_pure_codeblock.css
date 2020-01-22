@@ -9,6 +9,8 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
   overflow-x: auto;
   padding: 0.5em;
   background: #E0E0E0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 

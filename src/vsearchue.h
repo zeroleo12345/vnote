@@ -7,6 +7,8 @@
 
 #include "vsearchconfig.h"
 
+#define MINIMUM_HEIGHT 600
+
 class VListWidgetDoubleRows;
 class QListWidgetItem;
 class VTreeWidget;

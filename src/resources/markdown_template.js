@@ -23,7 +23,7 @@ var VPlantUMLDivClass = 'plantuml-diagram';
 var VMetaDataCodeClass = 'markdown-metadata';
 var VMarkRectDivClass = 'mark-rect';
 
-var hljsClass = 'hljs';
+var hljsClass = 'prettyprint';
 
 var VPreviewMode = false;
 
@@ -277,8 +277,12 @@ window.onwheel = function(e) {
     var ctrl = !!e.ctrlKey;
     if (ctrl) {
         e.preventDefault();
+    } else {
+        e.preventDefault();
+        var deltaY = 1.2 * e.deltaY;
+        window.scrollBy(0, deltaY);
     }
-}
+};
 
 var skipScrollCheckRange = null;
 
@@ -1285,6 +1289,8 @@ var addClassToCodeBlock = function() {
             }
         }
     }
+    // markdown-it.js before last render step
+    PR.prettyPrint();
 };
 
 var addCopyButtonToCodeBlock = function() {

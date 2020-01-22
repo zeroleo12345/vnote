@@ -1418,7 +1418,7 @@ void VMainWindow::initSearchDock()
     m_searchDock->setObjectName("SearchDock");
     m_searchDock->setAllowedAreas(Qt::AllDockWidgetAreas);
 
-    m_searcher = new VSearcher(this);
+    m_searcher = new VSearcher(m_searchDock);
 
     m_searchDock->setWidget(m_searcher);
 
@@ -2737,9 +2737,9 @@ void VMainWindow::checkSharedMemory()
 void VMainWindow::initTrayIcon()
 {
     QMenu *menu = new QMenu(this);
-    QAction *showMainWindowAct = menu->addAction(tr("Show VNote"));
-    connect(showMainWindowAct, &QAction::triggered,
-            this, &VMainWindow::showMainWindow);
+//    QAction *showMainWindowAct = menu->addAction(tr("Show VNote"));
+//    connect(showMainWindowAct, &QAction::triggered,
+//            this, &VMainWindow::showMainWindow);
 
     QAction *exitAct = menu->addAction(tr("Quit"));
     connect(exitAct, &QAction::triggered,
@@ -2796,7 +2796,6 @@ void VMainWindow::showMainWindow()
             this->showNormal();
         }
     } else {
-//        qWarning() << "4444444444444";
 //#ifdef Q_OS_MAC
 //        ObjectiveC *obc = new ObjectiveC();
 //        obc->ShowWindow();
@@ -3396,8 +3395,8 @@ void VMainWindow::initUniversalEntry()
 
     // Register entries.
     VSearchUE *searchUE = new VSearchUE(this);
-    m_ue->registerEntry('q', searchUE, VSearchUE::Name_FolderNote_AllNotebook);
     m_ue->registerEntry('a', searchUE, VSearchUE::Content_Note_AllNotebook);
+    m_ue->registerEntry('q', searchUE, VSearchUE::Name_FolderNote_AllNotebook);
     m_ue->registerEntry('z', searchUE, VSearchUE::Tag_Note_AllNotebook);
     m_ue->registerEntry('w', searchUE, VSearchUE::Name_Notebook_AllNotebook);
     m_ue->registerEntry('e', searchUE, VSearchUE::Name_FolderNote_CurrentNotebook);
@@ -3416,6 +3415,7 @@ void VMainWindow::initUniversalEntry()
     m_ue->registerEntry('m', new VListFolderUE(this), 0);
     m_ue->registerEntry('j', new VListUE(this), VListUE::History);
     m_ue->registerEntry('?', new VHelpUE(this), 0);
+    m_ue->setMinimumHeight(MINIMUM_HEIGHT);
 }
 
 void VMainWindow::checkNotebooks()
