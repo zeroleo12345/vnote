@@ -277,7 +277,8 @@ int main(int argc, char *argv[])
 
     w.kickOffStartUpTimer(filePaths);
 
-    qputenv("QTWEBENGINE_REMOTE_DEBUGGING", "9000");
+    // 调试QWebWidget
+    // qputenv("QTWEBENGINE_REMOTE_DEBUGGING", "9000");
     int ret = app.exec();
     app.setWindow(nullptr);
     if (ret == RESTART_EXIT_CODE) {
