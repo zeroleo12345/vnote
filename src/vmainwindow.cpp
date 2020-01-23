@@ -40,6 +40,7 @@
 #include "dialog/vtipsdialog.h"
 #include "vcart.h"
 #include "dialog/vexportdialog.h"
+#include "vdockwidget.h"
 #include "vsearcher.h"
 #include "vuniversalentry.h"
 #include "vsearchue.h"
@@ -1414,11 +1415,11 @@ void VMainWindow::initToolsDock()
 
 void VMainWindow::initSearchDock()
 {
-    m_searchDock = new QDockWidget(tr("Search"), this);
+    m_searchDock = new VDockWidget(tr("Search"), this);
     m_searchDock->setObjectName("SearchDock");
     m_searchDock->setAllowedAreas(Qt::AllDockWidgetAreas);
 
-    m_searcher = new VSearcher(m_searchDock);
+    m_searcher = new VSearcher(this);
 
     m_searchDock->setWidget(m_searcher);
 
