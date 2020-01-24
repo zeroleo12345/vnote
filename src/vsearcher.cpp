@@ -37,6 +37,11 @@ VSearcher::VSearcher(QWidget *p_parent)
     qRegisterMetaType<QList<QSharedPointer<VSearchResultItem>>>("QList<QSharedPointer<VSearchResultItem>>");
 }
 
+bool VSearcher::hasInitial()
+{
+    return m_uiInitialized;
+}
+
 void VSearcher::setupUI()
 {
     if (m_uiInitialized) {
@@ -624,15 +629,13 @@ void VSearcher::showEvent(QShowEvent *p_event)
 {
     init();
 
-    QWidget::showEvent(p_event);
+    QDialog::showEvent(p_event);
 }
 
 void VSearcher::changeEvent(QEvent *p_event)
 {
-    qWarning() << "Searcher:" << p_event;
     if(p_event->type() == QEvent::ActivationChange) {
         if(isActiveWindow()) {
-            qWarning() << "active";
         } else {
             setVisible(false);
         }

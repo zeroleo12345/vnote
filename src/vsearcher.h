@@ -29,6 +29,8 @@ public:
     void showNavigation() Q_DECL_OVERRIDE;
     bool handleKeyNavigation(int p_key, bool &p_succeed) Q_DECL_OVERRIDE;
 
+    bool hasInitial();
+
 protected:
     void showEvent(QShowEvent *p_event) Q_DECL_OVERRIDE;
 

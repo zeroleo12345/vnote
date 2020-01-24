@@ -40,7 +40,6 @@
 #include "dialog/vtipsdialog.h"
 #include "vcart.h"
 #include "dialog/vexportdialog.h"
-#include "vdockwidget.h"
 #include "vsearcher.h"
 #include "vuniversalentry.h"
 #include "vsearchue.h"
@@ -1156,6 +1155,7 @@ void VMainWindow::initEditMenu()
     advFindAct->setShortcut(QKeySequence(keySeq));
     connect(advFindAct, &QAction::triggered,
             this, [this]() {
+                qWarning() << "222222222";
                 m_searchDock->setVisible(true);
                 m_searchDock->focusToSearch();
             });
@@ -2345,11 +2345,12 @@ void VMainWindow::saveStateAndGeometry()
 {
     g_config->setMainWindowGeometry(saveGeometry());
     g_config->setMainWindowState(saveState());
-    g_config->setToolsDockChecked(m_toolDock->isVisible());
-    g_config->setMainSplitterState(m_mainSplitter->saveState());
     g_config->setNotebookSplitterState(m_nbSplitter->saveState());
     m_tagExplorer->saveStateAndGeometry();
     g_config->setNaviBoxCurrentIndex(m_naviBox->currentIndex());
+    if(m_searchDock->hasInitial()){
+        g_config->setSearchWindowGeometry(m_searchDock->saveGeometry());
+    }
 }
 
 void VMainWindow::restoreStateAndGeometry()
@@ -2364,6 +2365,12 @@ void VMainWindow::restoreStateAndGeometry()
         // restoreState() will restore the state of dock widgets.
         restoreState(state);
     }
+
+    const QByteArray search_geometry = g_config->getSearchWindowGeometry();
+    if (!search_geometry.isEmpty()) {
+        m_searchDock->restoreGeometry(search_geometry);
+    }
+
 
     const QByteArray splitterState = g_config->getMainSplitterState();
     if (!splitterState.isEmpty()) {
