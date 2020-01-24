@@ -1155,7 +1155,6 @@ void VMainWindow::initEditMenu()
     advFindAct->setShortcut(QKeySequence(keySeq));
     connect(advFindAct, &QAction::triggered,
             this, [this]() {
-                qWarning() << "222222222";
                 m_searchDock->setVisible(true);
                 m_searchDock->focusToSearch();
             });
