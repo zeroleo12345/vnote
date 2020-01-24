@@ -1,5 +1,6 @@
 #include "vsearcher.h"
 
+#include <QDialog>
 #include <QtWidgets>
 #include <QCoreApplication>
 
@@ -26,7 +27,7 @@ extern VNote *g_vnote;
 extern VConfigManager *g_config;
 
 VSearcher::VSearcher(QWidget *p_parent)
-    : QWidget(p_parent),
+    : QDialog(p_parent),
       m_initialized(false),
       m_uiInitialized(false),
       m_inSearch(false),
@@ -624,4 +625,17 @@ void VSearcher::showEvent(QShowEvent *p_event)
     init();
 
     QWidget::showEvent(p_event);
+}
+
+void VSearcher::changeEvent(QEvent *p_event)
+{
+    qWarning() << "Searcher:" << p_event;
+    if(p_event->type() == QEvent::ActivationChange) {
+        if(isActiveWindow()) {
+            qWarning() << "active";
+        } else {
+            setVisible(false);
+        }
+    }
+    QDialog::changeEvent(p_event);
 }

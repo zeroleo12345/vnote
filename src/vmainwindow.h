@@ -392,7 +392,7 @@ private:
 
     QDockWidget *m_toolDock;
 
-    QDockWidget *m_searchDock;
+    VSearcher *m_searchDock;
 
     // Tool box in the dock widget.
     VToolBox *m_toolBox;

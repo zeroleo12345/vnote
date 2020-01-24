@@ -17,7 +17,7 @@ class QProgressBar;
 class QPlainTextEdit;
 class QShowEvent;
 
-class VSearcher : public QWidget, public VNavigationMode
+class VSearcher : public QDialog, public VNavigationMode
 {
     Q_OBJECT
 public:
@@ -31,6 +31,8 @@ public:
 
 protected:
     void showEvent(QShowEvent *p_event) Q_DECL_OVERRIDE;
+
+    void changeEvent(QEvent *p_event) Q_DECL_OVERRIDE;
 
 private slots:
     void handleSearchFinished(const QSharedPointer<VSearchResult> &p_result);

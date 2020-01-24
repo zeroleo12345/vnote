@@ -189,7 +189,7 @@ void VMainWindow::registerCaptainAndNavigationTargets()
     m_captain->registerNavigationTarget(outline);
     m_captain->registerNavigationTarget(m_snippetList);
     m_captain->registerNavigationTarget(m_cart);
-    m_captain->registerNavigationTarget(m_searcher);
+//    m_captain->registerNavigationTarget(m_searcher);
 
     // Register Captain mode targets.
     m_captain->registerCaptainTarget(tr("AttachmentList"),
@@ -1157,7 +1157,7 @@ void VMainWindow::initEditMenu()
     connect(advFindAct, &QAction::triggered,
             this, [this]() {
                 m_searchDock->setVisible(true);
-                m_searcher->focusToSearch();
+                m_searchDock->focusToSearch();
             });
 
     m_findNextAct = new QAction(tr("Find Next"), this);
@@ -1415,21 +1415,22 @@ void VMainWindow::initToolsDock()
 
 void VMainWindow::initSearchDock()
 {
-    m_searchDock = new VDockWidget(tr("Search"), this);
-    m_searchDock->setObjectName("SearchDock");
-    m_searchDock->setAllowedAreas(Qt::AllDockWidgetAreas);
+    // FIXME
+//    m_searchDock = new VDockWidget(tr("Search"), this);
+//    m_searchDock->setAllowedAreas(Qt::AllDockWidgetAreas);
 
-    m_searcher = new VSearcher(this);
+    m_searchDock = new VSearcher(this);
+//    m_searchDock->setObjectName("SearchDock");
 
-    m_searchDock->setWidget(m_searcher);
+//    m_searchDock->setWidget(m_searcher);
 
-    addDockWidget(Qt::RightDockWidgetArea, m_searchDock);
+//    addDockWidget(Qt::RightDockWidgetArea, m_searchDock);
 
-    QAction *toggleAct = m_searchDock->toggleViewAction();
-    toggleAct->setToolTip(tr("Toggle the search dock widget"));
-    VUtils::fixTextWithCaptainShortcut(toggleAct, "SearchDock");
+//    QAction *toggleAct = m_searchDock->toggleViewAction();
+//    toggleAct->setToolTip(tr("Toggle the search dock widget"));
+//    VUtils::fixTextWithCaptainShortcut(toggleAct, "SearchDock");
 
-    m_viewMenu->addAction(toggleAct);
+//    m_viewMenu->addAction(toggleAct);
 }
 
 void VMainWindow::importNoteFromFile()
@@ -2345,7 +2346,6 @@ void VMainWindow::saveStateAndGeometry()
     g_config->setMainWindowGeometry(saveGeometry());
     g_config->setMainWindowState(saveState());
     g_config->setToolsDockChecked(m_toolDock->isVisible());
-    g_config->setSearchDockChecked(m_searchDock->isVisible());
     g_config->setMainSplitterState(m_mainSplitter->saveState());
     g_config->setNotebookSplitterState(m_nbSplitter->saveState());
     m_tagExplorer->saveStateAndGeometry();
@@ -2941,14 +2941,14 @@ bool VMainWindow::toggleToolsDockByCaptain(void *p_target, void *p_data)
 bool VMainWindow::toggleSearchDockByCaptain(void *p_target, void *p_data)
 {
     Q_UNUSED(p_data);
-    VMainWindow *obj = static_cast<VMainWindow *>(p_target);
-    bool visible = obj->m_searchDock->isVisible();
-    obj->m_searchDock->setVisible(!visible);
-    if (!visible) {
-        obj->m_searcher->focusToSearch();
-        return false;
-    }
-
+//    VMainWindow *obj = static_cast<VMainWindow *>(p_target);
+//    bool visible = obj->m_searchDock->isVisible();
+//    obj->m_searchDock->setVisible(!visible);
+//    if (!visible) {
+//        obj->m_searcher->focusToSearch();
+//        return false;
+//    }
+//
     return true;
 }
 
