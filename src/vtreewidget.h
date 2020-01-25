@@ -16,7 +16,7 @@ class VTreeWidget : public QTreeWidget, public ISimpleSearch
 {
     Q_OBJECT
 public:
-    explicit VTreeWidget(QWidget *p_parent = nullptr);
+    explicit VTreeWidget(QWidget *p_parent = nullptr, bool searchToggle = true);
 
     // Clear tree widget as well as other data.
     void clearAll();
@@ -87,6 +87,7 @@ private:
                                         QTreeWidgetItem *p_item,
                                         bool p_forward);
 
+    bool m_searchToggle = true;
     VSimpleSearchInput *m_searchInput;
 
     VStyledItemDelegate *m_delegate;
