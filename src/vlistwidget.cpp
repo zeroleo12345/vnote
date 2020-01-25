@@ -12,11 +12,12 @@
 
 extern VPalette *g_palette;
 
-VListWidget::VListWidget(QWidget *p_parent)
+VListWidget::VListWidget(QWidget *p_parent, bool searchToggle)
     : QListWidget(p_parent),
       ISimpleSearch(),
       m_fitContent(false)
 {
+    m_searchToggle = searchToggle;
     m_searchInput = new VSimpleSearchInput(this, this);
     connect(m_searchInput, &VSimpleSearchInput::triggered,
             this, &VListWidget::handleSearchModeTriggered);
@@ -29,7 +30,7 @@ VListWidget::VListWidget(QWidget *p_parent)
 
 void VListWidget::keyPressEvent(QKeyEvent *p_event)
 {
-    if (m_searchInput->tryHandleKeyPressEvent(p_event)) {
+    if (m_searchToggle && m_searchInput->tryHandleKeyPressEvent(p_event)) {
         return;
     }
 
