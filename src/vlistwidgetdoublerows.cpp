@@ -7,7 +7,7 @@
 #include "vdoublerowitemwidget.h"
 
 VListWidgetDoubleRows::VListWidgetDoubleRows(QWidget *p_parent)
-    : VListWidget(p_parent)
+    : VListWidget(p_parent, false)
 {
 }
 

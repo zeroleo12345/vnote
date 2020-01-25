@@ -20,7 +20,7 @@ extern VNote *g_vnote;
 extern VMainWindow *g_mainWin;
 
 VSearchResultTree::VSearchResultTree(QWidget *p_parent)
-    : VTreeWidget(p_parent)
+    : VTreeWidget(p_parent, false)
 {
     setColumnCount(1);
     setHeaderHidden(true);

@@ -16,13 +16,14 @@
 
 #define SEARCH_INPUT_IDLE_OPACITY 0.2
 
-VTreeWidget::VTreeWidget(QWidget *p_parent)
+VTreeWidget::VTreeWidget(QWidget *p_parent, bool searchToggle)
     : QTreeWidget(p_parent),
       ISimpleSearch(),
       m_fitContent(false)
 {
     setAttribute(Qt::WA_MacShowFocusRect, false);
 
+    m_searchToggle = searchToggle;
     m_searchInput = new VSimpleSearchInput(this, this);
     connect(m_searchInput, &VSimpleSearchInput::triggered,
             this, &VTreeWidget::handleSearchModeTriggered);
@@ -67,7 +68,7 @@ VTreeWidget::VTreeWidget(QWidget *p_parent)
 
 void VTreeWidget::keyPressEvent(QKeyEvent *p_event)
 {
-    if (m_searchInput->tryHandleKeyPressEvent(p_event)) {
+    if (m_searchToggle && m_searchInput->tryHandleKeyPressEvent(p_event)) {
         return;
     }
 

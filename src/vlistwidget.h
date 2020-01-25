@@ -12,7 +12,7 @@ class VStyledItemDelegate;
 class VListWidget : public QListWidget, public ISimpleSearch
 {
 public:
-    explicit VListWidget(QWidget *p_parent = Q_NULLPTR);
+    explicit VListWidget(QWidget *p_parent = Q_NULLPTR, bool searchToggle = true);
 
     // Clear list widget as well as other data.
     // clear() is not virtual to override.
@@ -57,6 +57,7 @@ private:
     // Show or hide search input.
     void setSearchInputVisible(bool p_visible);
 
+    bool m_searchToggle = true;
     VSimpleSearchInput *m_searchInput;
 
     VStyledItemDelegate *m_delegate;
