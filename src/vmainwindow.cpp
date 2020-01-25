@@ -3387,8 +3387,8 @@ void VMainWindow::initUniversalEntry()
 #if defined(Q_OS_MACOS) || defined(Q_OS_MAC)
     // Qt::Popup on macOS does not work well with input method.
     m_ue->setWindowFlags(Qt::Tool
+                         | Qt::FramelessWindowHint
                          | Qt::NoDropShadowWindowHint);
-    m_ue->setWindowModality(Qt::ApplicationModal);
 #else
     m_ue->setWindowFlags(Qt::Popup
                          | Qt::FramelessWindowHint
