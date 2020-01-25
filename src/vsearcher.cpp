@@ -635,8 +635,7 @@ void VSearcher::showEvent(QShowEvent *p_event)
 void VSearcher::changeEvent(QEvent *p_event)
 {
     if(p_event->type() == QEvent::ActivationChange) {
-        if(isActiveWindow()) {
-        } else {
+        if(!isActiveWindow()) {
             setVisible(false);
         }
     }

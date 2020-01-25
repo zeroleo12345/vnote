@@ -2,6 +2,7 @@
 #define VUNIVERSALENTRY_H
 
 #include <QWidget>
+#include <QDialog>
 #include <QRect>
 #include <QHash>
 #include <QAtomicInt>
@@ -40,7 +41,7 @@ private:
 };
 
 
-class VUniversalEntry : public QWidget
+class VUniversalEntry : public QDialog
 {
     Q_OBJECT
 public:
@@ -68,6 +69,8 @@ protected:
     void keyPressEvent(QKeyEvent *p_event) Q_DECL_OVERRIDE;
 
     void paintEvent(QPaintEvent *p_event) Q_DECL_OVERRIDE;
+
+    void changeEvent(QEvent *p_event) Q_DECL_OVERRIDE;
 
 private:
     struct Entry

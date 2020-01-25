@@ -74,7 +74,7 @@ QSize VUniversalEntryContainer::sizeHint() const
 
 
 VUniversalEntry::VUniversalEntry(QWidget *p_parent)
-    : QWidget(p_parent),
+    : QDialog(p_parent),
       m_availableRect(0, 0, MINIMUM_WIDTH, MINIMUM_WIDTH),
       m_lastEntry(NULL),
       m_inQueue(0),
@@ -131,7 +131,7 @@ void VUniversalEntry::setupUI()
 
 void VUniversalEntry::hideEvent(QHideEvent *p_event)
 {
-    QWidget::hideEvent(p_event);
+    QDialog::hideEvent(p_event);
     if (m_lastEntry) {
         m_lastEntry->m_entry->entryHidden(m_lastEntry->m_id);
     }
@@ -141,7 +141,7 @@ void VUniversalEntry::hideEvent(QHideEvent *p_event)
 
 void VUniversalEntry::showEvent(QShowEvent *p_event)
 {
-    QWidget::showEvent(p_event);
+    QDialog::showEvent(p_event);
 
     // Fix Chinese input method issue.
     activateWindow();
@@ -429,7 +429,7 @@ void VUniversalEntry::keyPressEvent(QKeyEvent *p_event)
         break;
     }
 
-    QWidget::keyPressEvent(p_event);
+    QDialog::keyPressEvent(p_event);
 }
 
 void VUniversalEntry::paintEvent(QPaintEvent *p_event)
@@ -439,7 +439,7 @@ void VUniversalEntry::paintEvent(QPaintEvent *p_event)
     QPainter p(this);
     style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 
-    QWidget::paintEvent(p_event);
+    QDialog::paintEvent(p_event);
 }
 
 void VUniversalEntry::updateState(IUniversalEntry::State p_state)
@@ -469,4 +469,14 @@ QString VUniversalEntry::getCommandFromEdit() const
 {
     QString cmd = m_cmdEdit->getEvaluatedText();
     return cmd.mid(1);
+}
+
+void VUniversalEntry::changeEvent(QEvent *p_event)
+{
+    if(p_event->type() == QEvent::ActivationChange) {
+        if(!isActiveWindow()) {
+            this->hide();
+        }
+    }
+    QDialog::changeEvent(p_event);
 }
