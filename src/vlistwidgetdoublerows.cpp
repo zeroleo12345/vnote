@@ -2,6 +2,7 @@
 
 #include <QListWidgetItem>
 #include <QScrollBar>
+#include <QDebug>
 
 #include "vdoublerowitemwidget.h"
 
