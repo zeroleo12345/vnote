@@ -92,7 +92,7 @@ VUniversalEntry::VUniversalEntry(QWidget *p_parent)
 
     setupUI();
 
-    m_infoWidget = new VListWidget(this, false);
+    m_infoWidget = new VListWidget(this);
     m_infoWidget->setFitContent(true);
     m_container->setWidget(m_infoWidget);
 
