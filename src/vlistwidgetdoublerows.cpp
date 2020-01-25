@@ -2,12 +2,11 @@
 
 #include <QListWidgetItem>
 #include <QScrollBar>
-#include <QDebug>
 
 #include "vdoublerowitemwidget.h"
 
 VListWidgetDoubleRows::VListWidgetDoubleRows(QWidget *p_parent)
-    : VListWidget(p_parent)
+    : VListWidget(p_parent, false)
 {
 }
 
