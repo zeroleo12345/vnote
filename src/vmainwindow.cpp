@@ -1414,7 +1414,6 @@ void VMainWindow::initToolsDock()
 
 void VMainWindow::initSearchDock()
 {
-    // FIXME
 //    m_searchDock = new VDockWidget(tr("Search"), this);
 //    m_searchDock->setAllowedAreas(Qt::AllDockWidgetAreas);
 
@@ -2344,6 +2343,8 @@ void VMainWindow::saveStateAndGeometry()
 {
     g_config->setMainWindowGeometry(saveGeometry());
     g_config->setMainWindowState(saveState());
+    g_config->setToolsDockChecked(m_toolDock->isVisible());
+    g_config->setMainSplitterState(m_mainSplitter->saveState());
     g_config->setNotebookSplitterState(m_nbSplitter->saveState());
     m_tagExplorer->saveStateAndGeometry();
     g_config->setNaviBoxCurrentIndex(m_naviBox->currentIndex());
