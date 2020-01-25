@@ -1,5 +1,6 @@
 #include "vsearcher.h"
 
+#include <QDialog>
 #include <QtWidgets>
 #include <QCoreApplication>
 
@@ -26,7 +27,7 @@ extern VNote *g_vnote;
 extern VConfigManager *g_config;
 
 VSearcher::VSearcher(QWidget *p_parent)
-    : QWidget(p_parent),
+    : QDialog(p_parent),
       m_initialized(false),
       m_uiInitialized(false),
       m_inSearch(false),
@@ -34,6 +35,11 @@ VSearcher::VSearcher(QWidget *p_parent)
       m_search(this)
 {
     qRegisterMetaType<QList<QSharedPointer<VSearchResultItem>>>("QList<QSharedPointer<VSearchResultItem>>");
+}
+
+bool VSearcher::hasInitial()
+{
+    return m_uiInitialized;
 }
 
 void VSearcher::setupUI()
@@ -623,20 +629,15 @@ void VSearcher::showEvent(QShowEvent *p_event)
 {
     init();
 
-    QWidget::showEvent(p_event);
+    QDialog::showEvent(p_event);
 }
 
-
-void VSearcher::keyPressEvent(QKeyEvent *p_event)
+void VSearcher::changeEvent(QEvent *p_event)
 {
-    switch (p_event->key()) {
-        case Qt::Key_Escape:
-            auto *parent = (QDockWidget*)parentWidget();
-            if(parent->isFloating()) {
-                parent->setVisible(false);
-            }
-            return;
+    if(p_event->type() == QEvent::ActivationChange) {
+        if(!isActiveWindow()) {
+            setVisible(false);
+        }
     }
-
-    QWidget::keyPressEvent(p_event);
+    QDialog::changeEvent(p_event);
 }

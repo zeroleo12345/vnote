@@ -221,6 +221,9 @@ public:
     const QByteArray getMainWindowGeometry() const;
     void setMainWindowGeometry(const QByteArray &p_geometry);
 
+    const QByteArray getSearchWindowGeometry() const;
+    void setSearchWindowGeometry(const QByteArray &p_geometry);
+
     const QByteArray getMainWindowState() const;
     void setMainWindowState(const QByteArray &p_state);
 
@@ -1575,6 +1578,19 @@ inline void VConfigManager::setMainWindowGeometry(const QByteArray &p_geometry)
 {
     setConfigToSessionSettings("geometry",
                                "main_window_geometry",
+                               p_geometry);
+}
+
+inline const QByteArray VConfigManager::getSearchWindowGeometry() const
+{
+    return getConfigFromSessionSettings("geometry",
+                                        "search_window_geometry").toByteArray();
+}
+
+inline void VConfigManager::setSearchWindowGeometry(const QByteArray &p_geometry)
+{
+    setConfigToSessionSettings("geometry",
+                               "search_window_geometry",
                                p_geometry);
 }
 
