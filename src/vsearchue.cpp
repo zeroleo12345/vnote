@@ -928,7 +928,7 @@ void VSearchUE::activateItem(const QSharedPointer<VSearchResultItem> &p_item, in
         }
 
         QStringList files(p_item->m_path);
-        OpenFileMode mode = highlightPage ? OpenFileMode::Edit : OpenFileMode::Read;
+        OpenFileMode mode = OpenFileMode::Read;
         bool forceMode = highlightPage;
         QVector<VFile *> openedFiles = g_mainWin->openFiles(files,
                                                             false,
