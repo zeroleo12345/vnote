@@ -279,6 +279,7 @@ void VSearchResultTree::activateItem(const QTreeWidgetItem *p_item) const
     }
 
     VSearchUE::activateItem(itemResultData(p_item), VTreeWidget::childIndexOfTreeItem(p_item));
+    parentWidget() -> setVisible(false);
 }
 
 void VSearchResultTree::expandCollapseAll()
