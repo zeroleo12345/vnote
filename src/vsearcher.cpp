@@ -110,8 +110,8 @@ void VSearcher::setupUI()
     m_keywordCB->lineEdit()->setProperty("EmbeddedEdit", true);
     connect(m_keywordCB, &QComboBox::currentTextChanged,
             this, &VSearcher::handleInputChanged);
-    connect(m_keywordCB->lineEdit(), &QLineEdit::returnPressed,
-            this, &VSearcher::animateSearchClick);
+//    connect(m_keywordCB->lineEdit(), &QLineEdit::returnPressed,
+//            this, &VSearcher::animateSearchClick);
     m_keywordCB->completer()->setCaseSensitivity(Qt::CaseSensitive);
 
     // Scope.
