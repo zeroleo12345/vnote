@@ -36,6 +36,9 @@ protected:
 
     void changeEvent(QEvent *p_event) Q_DECL_OVERRIDE;
 
+signals:
+    void locateDoubleClickedItem(QString text);
+
 private slots:
     void handleSearchFinished(const QSharedPointer<VSearchResult> &p_result);
 

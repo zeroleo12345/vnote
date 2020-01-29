@@ -222,6 +222,10 @@ void VSearcher::setupUI()
                 m_clearBtn->setEnabled(p_count > 0);
                 updateNumLabel(p_count);
             });
+    connect(m_results, &VSearchResultTree::locateDoubleClickedItem,
+            this, [this](QString text) {
+                emit locateDoubleClickedItem(text);
+            });
 
     QShortcut *expandShortcut = new QShortcut(QKeySequence(Shortcut::c_expand), this);
     expandShortcut->setContext(Qt::WidgetWithChildrenShortcut);

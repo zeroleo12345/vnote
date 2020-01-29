@@ -29,6 +29,8 @@ public slots:
 signals:
     void countChanged(int p_count);
 
+    void locateDoubleClickedItem(QString text);
+
 private slots:
     void locateCurrentItem();
 
@@ -41,7 +43,7 @@ private:
 
     VSearchResultItem::ItemType itemResultType(const QTreeWidgetItem *p_item) const;
 
-    void activateItem(const QTreeWidgetItem *p_item) const;
+    void activateItem(const QTreeWidgetItem *p_item);
 
     const QSharedPointer<VSearchResultItem> &itemResultData(const QTreeWidgetItem *p_item) const;
 

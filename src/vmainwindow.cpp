@@ -1418,6 +1418,10 @@ void VMainWindow::initSearchDock()
 //    m_searchDock->setAllowedAreas(Qt::AllDockWidgetAreas);
 
     m_searchDock = new VSearcher(this);
+    connect(m_searchDock, &VSearcher::locateDoubleClickedItem,
+        m_findReplaceDialog, [this](QString text) {
+            m_findReplaceDialog->openDialog(text);
+        });
 //    m_searchDock->setObjectName("SearchDock");
 
 //    m_searchDock->setWidget(m_searcher);
