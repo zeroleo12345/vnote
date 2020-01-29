@@ -221,6 +221,7 @@ void VSearcher::setupUI()
             this, [this](int p_count) {
                 m_clearBtn->setEnabled(p_count > 0);
                 updateNumLabel(p_count);
+                m_results->expandCollapseAll();     // append 时, 触发信号: countChanged
             });
     connect(m_results, &VSearchResultTree::locateDoubleClickedItem,
             this, [this](QString text) {
