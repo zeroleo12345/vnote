@@ -2509,7 +2509,7 @@ void VMainWindow::handleFindDialogTextChanged(const QString &p_text, uint /* p_o
 
 void VMainWindow::openFindDialog()
 {
-    m_findReplaceDialog->openDialog(m_editArea->getSelectedText());
+    m_findReplaceDialog->openDialog();
 }
 
 void VMainWindow::viewSettings()
