@@ -110,8 +110,8 @@ void VSearcher::setupUI()
     m_keywordCB->lineEdit()->setProperty("EmbeddedEdit", true);
     connect(m_keywordCB, &QComboBox::currentTextChanged,
             this, &VSearcher::handleInputChanged);
-    connect(m_keywordCB->lineEdit(), &QLineEdit::returnPressed,
-            this, &VSearcher::animateSearchClick);
+//    connect(m_keywordCB->lineEdit(), &QLineEdit::returnPressed,
+//            this, &VSearcher::animateSearchClick);
     m_keywordCB->completer()->setCaseSensitivity(Qt::CaseSensitive);
 
     // Scope.
@@ -221,6 +221,11 @@ void VSearcher::setupUI()
             this, [this](int p_count) {
                 m_clearBtn->setEnabled(p_count > 0);
                 updateNumLabel(p_count);
+                m_results->expandCollapseAll();     // append 时, 触发信号: countChanged
+            });
+    connect(m_results, &VSearchResultTree::locateDoubleClickedItem,
+            this, [this](QString text) {
+                emit locateDoubleClickedItem(text);
             });
 
     QShortcut *expandShortcut = new QShortcut(QKeySequence(Shortcut::c_expand), this);

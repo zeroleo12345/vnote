@@ -272,13 +272,15 @@ const QSharedPointer<VSearchResultItem> &VSearchResultTree::itemResultData(const
     return m_data[idx];
 }
 
-void VSearchResultTree::activateItem(const QTreeWidgetItem *p_item) const
+void VSearchResultTree::activateItem(const QTreeWidgetItem *p_item)
 {
     if (!p_item) {
         return;
     }
 
     VSearchUE::activateItem(itemResultData(p_item), VTreeWidget::childIndexOfTreeItem(p_item));
+    parentWidget() -> setVisible(false);
+    emit locateDoubleClickedItem(itemResultData(p_item)->m_config->m_contentToken.m_keywords[0]);
 }
 
 void VSearchResultTree::expandCollapseAll()
